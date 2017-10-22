@@ -35,7 +35,7 @@ public class SpringDataTest {
 		System.out.println(blogRepsotory.getClass().getName());
 		
 		Blog blog = blogRepsotory.getByBId(1);
-		System.out.println(blog.getbIssuetime());
+		System.out.println(blog.getbContent());
 	}
 	
 	
@@ -49,5 +49,21 @@ public class SpringDataTest {
 		DataSource dataSource = ctx.getBean(DataSource.class);
 		System.out.println(dataSource.getConnection());
 	}
-
+	
+	
+	
+	@Test
+	public void testFirstSelect(){
+		Blog b = new Blog();
+		b.setbId(3);
+		b.setbCommentnum(43243);
+		blogRepsotory.save(b);
+	}
+	
+	
+	
+	
+	
+	
+	
 }

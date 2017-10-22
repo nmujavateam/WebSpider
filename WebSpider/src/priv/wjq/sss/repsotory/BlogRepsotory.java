@@ -1,6 +1,6 @@
 package priv.wjq.sss.repsotory;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import priv.wjq.sss.model.Blog;
 
@@ -20,6 +20,6 @@ import priv.wjq.sss.model.Blog;
  * 5. 支持属性的级联查询. 若当前类有符合条件的属性, 则优先使用, 而不使用级联属性. 
  * 若需要使用级联属性, 则属性之间使用 _ 进行连接. 
  */
-public interface BlogRepsotory extends Repository<Blog, Integer> {
+public interface BlogRepsotory extends JpaRepository<Blog, Integer> {
 	Blog getByBId(int bId);
 }

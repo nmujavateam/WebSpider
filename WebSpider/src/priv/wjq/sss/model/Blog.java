@@ -3,6 +3,8 @@ package priv.wjq.sss.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -10,8 +12,6 @@ import javax.persistence.Table;
 @Entity
 public class Blog {
     private Integer bId;
-
-    private Integer wId;
 
     private String bTitle;
 
@@ -30,7 +30,24 @@ public class Blog {
     private String bAuthorhome;
 
     private String bContent;
-    @GeneratedValue
+    
+    //级联属性
+    
+    private WebSite webSite;
+    
+    
+    
+    @JoinColumn(name="webid")
+    @ManyToOne
+    public WebSite getWebSite() {
+		return webSite;
+	}
+
+	public void setWebSite(WebSite webSite) {
+		this.webSite = webSite;
+	}
+
+	@GeneratedValue
 	@Id
     public Integer getbId() {
         return bId;
@@ -40,13 +57,6 @@ public class Blog {
         this.bId = bId;
     }
 
-    public Integer getwId() {
-        return wId;
-    }
-
-    public void setwId(Integer wId) {
-        this.wId = wId;
-    }
 
     public String getbTitle() {
         return bTitle;
